@@ -134,18 +134,21 @@ The application includes integration with:
 ### GitHub Pages (Recommended)
 1. **Enable GitHub Pages** in your repository settings
    - Go to Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` (will be created automatically)
-   - Folder: `/ (root)`
+   - Source: GitHub Actions
+   - This will use the workflow to build and deploy automatically
 
 2. **Push to main branch** - The workflow will automatically:
-   - Build your Vue.js app
-   - Deploy to GitHub Pages
-   - Your site will be available at: `https://[username].github.io/ecommerce/`
+   - Build your Vue.js app using GitHub Actions
+   - Deploy to GitHub Pages using official GitHub Actions
+   - Your site will be available at: `https://[username].github.io/[repository-name]/`
 
-3. **Custom Domain** (Optional)
-   - Add your domain in the workflow file: `.github/workflows/deploy.yml`
-   - Uncomment and set the `cname` field
+3. **Manual Deployment** (Optional)
+   - Go to Actions tab in your repository
+   - Click "Build and Deploy to GitHub Pages"
+   - Click "Run workflow" to manually trigger deployment
+
+4. **Custom Domain** (Optional)
+   - Add your domain in repository Settings → Pages → Custom domain
 
 ### Netlify
 1. Connect your repository
