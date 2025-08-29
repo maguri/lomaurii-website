@@ -16,6 +16,7 @@
           <div class="hidden md:flex items-center space-x-8">
             <router-link to="/" class="nav-link">Dashboard</router-link>
             <router-link to="/products" class="nav-link">Products</router-link>
+            <router-link to="/server" class="nav-link">Server</router-link>
             <router-link to="/contact" class="nav-link">Contact</router-link>
             <a href="https://www.twitch.tv/lomaurii" target="_blank" rel="noopener noreferrer" 
                class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
@@ -39,6 +40,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1">
           <router-link to="/" @click="mobileMenuOpen = false" class="mobile-nav-link">Dashboard</router-link>
           <router-link to="/products" @click="mobileMenuOpen = false" class="mobile-nav-link">Products</router-link>
+          <router-link to="/server" @click="mobileMenuOpen = false" class="mobile-nav-link">Server</router-link>
           <router-link to="/contact" @click="mobileMenuOpen = false" class="mobile-nav-link">Contact</router-link>
           <a href="https://www.twitch.tv/lomaurii" target="_blank" rel="noopener noreferrer" 
              class="block w-full text-left px-3 py-2 text-base font-medium text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md">
@@ -64,6 +66,7 @@
             <ul class="space-y-2">
               <li><router-link to="/" class="text-gray-400 hover:text-white transition-colors">Dashboard</router-link></li>
               <li><router-link to="/products" class="text-gray-400 hover:text-white transition-colors">Products</router-link></li>
+              <li><router-link to="/server" class="text-gray-400 hover:text-white transition-colors">Server</router-link></li>
               <li><router-link to="/contact" class="text-gray-400 hover:text-white transition-colors">Contact</router-link></li>
             </ul>
           </div>

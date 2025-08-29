@@ -3,6 +3,7 @@ import Dashboard from '../views/Dashboard.vue'
 import ProductsList from '../views/ProductsList.vue'
 import ProductView from '../views/ProductView.vue'
 import Contact from '../views/Contact.vue'
+import Server from '../views/Server.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact
+  },
+  {
+    path: '/server',
+    name: 'Server',
+    component: Server
   }
 ]
 
