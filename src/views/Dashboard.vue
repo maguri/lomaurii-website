@@ -1,8 +1,15 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-primary to-secondary text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="relative bg-gradient-to-r from-primary to-secondary text-white py-20 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img src="../assets/background.jpeg" alt="Gaming Background" 
+             class="w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div class="mb-8">
           <h1 class="text-4xl md:text-6xl font-bold mb-6">
             Welcome to <span class="text-accent">Lomaurii</span>
@@ -10,13 +17,17 @@
           <p class="text-xl md:text-2xl mb-8 text-blue-100">
             Premium gaming merchandise for the ultimate gaming experience
           </p>
+          <!-- Tip Buttons in Hero Section -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <router-link to="/products" class="btn-secondary text-lg px-8 py-3">
-              Shop Now
-            </router-link>
-            <a href="https://www.twitch.tv/lomaurii" target="_blank" rel="noopener noreferrer" 
-               class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200">
-              🎮 Watch Stream
+            <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" 
+               target="_blank" rel="noopener noreferrer"
+               class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 text-center">
+              💙 Support with PayPal
+            </a>
+            <a href="https://www.buymeacoffee.com/lomaurii" 
+               target="_blank" rel="noopener noreferrer"
+               class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 text-center">
+              ☕ Buy Me a Coffee
             </a>
           </div>
         </div>

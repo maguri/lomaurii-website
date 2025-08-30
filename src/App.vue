@@ -23,6 +23,20 @@
                class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
               🎮 Twitch
             </a>
+            
+            <!-- Tip Buttons -->
+            <div class="flex items-center space-x-2">
+              <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" 
+                 target="_blank" rel="noopener noreferrer"
+                 class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg font-medium transition-colors duration-200 text-sm">
+                💙 PayPal Tips
+              </a>
+              <a href="https://www.buymeacoffee.com/lomaurii" 
+                 target="_blank" rel="noopener noreferrer"
+                 class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded-lg font-medium transition-colors duration-200 text-sm">
+                ☕ Buy Coffee
+              </a>
+            </div>
           </div>
           
           <!-- Mobile menu button -->
@@ -47,6 +61,20 @@
              class="block w-full text-left px-3 py-2 text-base font-medium text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md">
             🎮 Twitch Channel
           </a>
+          
+          <!-- Mobile Tip Buttons -->
+          <div class="pt-2 border-t border-gray-200 mt-2">
+            <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" 
+               target="_blank" rel="noopener noreferrer"
+               class="block w-full text-left px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md">
+              💙 PayPal Tips
+            </a>
+            <a href="https://www.buymeacoffee.com/lomaurii" 
+               target="_blank" rel="noopener noreferrer"
+               class="block w-full text-left px-3 py-2 text-base font-medium text-yellow-600 hover:text-yellow-800 hover:bg-yellow-50 rounded-md">
+              ☕ Buy Me a Coffee
+            </a>
+          </div>
         </div>
       </div>
     </nav>
