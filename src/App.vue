@@ -18,6 +18,18 @@
             <router-link to="/products" class="nav-link">Products</router-link>
             <router-link to="/server" class="nav-link">Server</router-link>
             <router-link to="/contact" class="nav-link">Contact</router-link>
+            
+            <!-- Shopping Cart -->
+            <button @click="cartStore.openCart" class="relative text-gray-600 hover:text-primary transition-colors">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span v-if="cartStore.totalItems > 0" 
+                    class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                {{ cartStore.totalItems > 99 ? '99+' : cartStore.totalItems }}
+              </span>
+            </button>
+            
             <a href="https://www.twitch.tv/lomaurii" target="_blank" rel="noopener noreferrer" 
                class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
               🎮 Twitch
@@ -25,7 +37,18 @@
           </div>
           
           <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center">
+          <div class="md:hidden flex items-center space-x-2">
+            <!-- Mobile Shopping Cart -->
+            <button @click="cartStore.openCart" class="relative text-gray-600 hover:text-primary transition-colors">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span v-if="cartStore.totalItems > 0" 
+                    class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                {{ cartStore.totalItems > 99 ? '99+' : cartStore.totalItems }}
+              </span>
+            </button>
+            
             <button @click="toggleMobileMenu" class="text-gray-600 hover:text-gray-900">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -53,6 +76,9 @@
     <main>
       <router-view />
     </main>
+    
+    <!-- Shopping Cart Component -->
+    <ShoppingCart />
     
     <footer class="bg-gray-900 text-white mt-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -89,19 +115,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      mobileMenuOpen: false
-    }
-  },
-  methods: {
-    toggleMobileMenu() {
-      this.mobileMenuOpen = !this.mobileMenuOpen
-    }
-  }
+<script setup>
+import { ref } from 'vue'
+import { useCartStore } from './stores/cart'
+import ShoppingCart from './components/ShoppingCart.vue'
+
+const cartStore = useCartStore()
+const mobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
 }
 </script>
 
@@ -116,5 +139,25 @@ export default {
 
 .router-link-active {
   @apply text-primary;
+}
+
+.bg-primary {
+  background-color: #3b82f6;
+}
+
+.text-primary {
+  color: #3b82f6;
+}
+
+.hover\:text-primary:hover {
+  color: #3b82f6;
+}
+
+.from-primary {
+  --tw-gradient-from: #3b82f6;
+}
+
+.to-secondary {
+  --tw-gradient-to: #8b5cf6;
 }
 </style>

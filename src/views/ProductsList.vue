@@ -94,72 +94,145 @@
       <!-- Products Grid -->
       <div v-if="viewMode === 'grid'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <div v-for="product in filteredProducts" :key="product.id" 
-             class="card overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300"
-             @click="goToProduct(product.id)">
+             class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
           <div class="relative overflow-hidden">
             <img :src="product.image" :alt="product.name" 
-                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div v-if="!product.inStock" 
-                 class="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-medium">
-              Out of Stock
-            </div>
-            <div v-if="product.featured" 
-                 class="absolute top-4 left-4 bg-accent text-white px-2 py-1 rounded-full text-sm font-medium">
-              Featured
+                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                 @click="goToProduct(product.id)">
+            <div class="absolute top-4 right-4">
+              <span v-if="product.featured" class="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold">
+                Featured
+              </span>
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">{{ product.name }}</h3>
-            <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ product.description }}</p>
-            <div class="flex items-center justify-between">
-              <span class="text-xl font-bold text-primary">${{ product.price }}</span>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-500">{{ product.category }}</span>
               <div class="flex items-center">
-                <div class="flex text-yellow-400 text-sm">
-                  <span v-for="i in 5" :key="i">
-                    {{ i <= Math.floor(product.rating) ? '★' : '☆' }}
-                  </span>
-                </div>
-                <span class="text-gray-500 text-xs ml-1">({{ product.reviews }})</span>
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span class="text-sm text-gray-600 ml-1">{{ product.rating }}</span>
+                <span class="text-sm text-gray-400 ml-1">({{ product.reviews }})</span>
               </div>
             </div>
+            
+            <h3 class="text-lg font-semibold text-gray-900 mb-2 cursor-pointer hover:text-primary transition-colors"
+                @click="goToProduct(product.id)">
+              {{ product.name }}
+            </h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
+            
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-bold text-gray-900">{{ formatPrice(product.price) }}</span>
+              <span v-if="!product.inStock" class="text-red-500 text-sm font-medium">Out of Stock</span>
+            </div>
+
+            <!-- Product Options -->
+            <div v-if="product.sizes || product.colors" class="mb-4 space-y-2">
+              <!-- Size Selection -->
+              <div v-if="product.sizes" class="flex items-center space-x-2">
+                <span class="text-sm text-gray-600">Size:</span>
+                <select v-model="selectedOptions[product.id]?.size" class="text-sm border border-gray-300 rounded px-2 py-1">
+                  <option value="">Select Size</option>
+                  <option v-for="size in product.sizes" :key="size" :value="size">{{ size }}</option>
+                </select>
+              </div>
+              
+              <!-- Color Selection -->
+              <div v-if="product.colors" class="flex items-center space-x-2">
+                <span class="text-sm text-gray-600">Color:</span>
+                <select v-model="selectedOptions[product.id]?.color" class="text-sm border border-gray-300 rounded px-2 py-1">
+                  <option value="">Select Color</option>
+                  <option v-for="color in product.colors" :key="color" :value="color">{{ color }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button 
+              @click="addToCart(product)"
+              :disabled="!product.inStock || !canAddToCart(product)"
+              class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <span v-if="!product.inStock">Out of Stock</span>
+              <span v-else-if="!canAddToCart(product)">Select Options</span>
+              <span v-else>Add to Cart</span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Products List -->
-      <div v-else class="space-y-4">
+      <!-- Products List View -->
+      <div v-else class="space-y-6">
         <div v-for="product in filteredProducts" :key="product.id" 
-             class="card p-6 hover:shadow-xl transition-all duration-300 cursor-pointer"
-             @click="goToProduct(product.id)">
-          <div class="flex flex-col md:flex-row gap-6">
-            <div class="relative flex-shrink-0">
+             class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="flex">
+            <div class="flex-shrink-0 w-48 h-48">
               <img :src="product.image" :alt="product.name" 
-                   class="w-32 h-32 object-cover rounded-lg">
-              <div v-if="!product.inStock" 
-                   class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">
-                Out of Stock
-              </div>
-              <div v-if="product.featured" 
-                   class="absolute top-2 left-2 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
-                Featured
-              </div>
+                   class="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                   @click="goToProduct(product.id)">
             </div>
-            <div class="flex-1">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 class="text-xl font-semibold text-gray-900 mb-2 md:mb-0">{{ product.name }}</h3>
-                <span class="text-2xl font-bold text-primary">${{ product.price }}</span>
-              </div>
-              <p class="text-gray-600 mb-4">{{ product.description }}</p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <div class="flex text-yellow-400">
-                    <span v-for="i in 5" :key="i" class="text-sm">
-                      {{ i <= Math.floor(product.rating) ? '★' : '☆' }}
-                    </span>
+            
+            <div class="flex-1 p-6">
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-2">
+                    <span class="text-sm text-gray-500 mr-4">{{ product.category }}</span>
+                    <div class="flex items-center">
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <span class="text-sm text-gray-600 ml-1">{{ product.rating }}</span>
+                      <span class="text-sm text-gray-400 ml-1">({{ product.reviews }})</span>
+                    </div>
                   </div>
-                  <span class="text-gray-500 text-sm ml-2">({{ product.reviews }})</span>
+                  
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2 cursor-pointer hover:text-primary transition-colors"
+                      @click="goToProduct(product.id)">
+                    {{ product.name }}
+                  </h3>
+                  
+                  <p class="text-gray-600 mb-4">{{ product.description }}</p>
+                  
+                  <!-- Product Options -->
+                  <div v-if="product.sizes || product.colors" class="flex items-center space-x-4 mb-4">
+                    <!-- Size Selection -->
+                    <div v-if="product.sizes" class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-600">Size:</span>
+                      <select v-model="selectedOptions[product.id]?.size" class="text-sm border border-gray-300 rounded px-2 py-1">
+                        <option value="">Select Size</option>
+                        <option v-for="size in product.sizes" :key="size" :value="size">{{ size }}</option>
+                      </select>
+                    </div>
+                    
+                    <!-- Color Selection -->
+                    <div v-if="product.colors" class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-600">Color:</span>
+                      <select v-model="selectedOptions[product.id]?.color" class="text-sm border border-gray-300 rounded px-2 py-1">
+                        <option value="">Select Color</option>
+                        <option v-for="color in product.colors" :key="color" :value="color">{{ color }}</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{{ product.category }}</span>
+                
+                <div class="text-right ml-6">
+                  <div class="text-3xl font-bold text-gray-900 mb-4">{{ formatPrice(product.price) }}</div>
+                  <div v-if="!product.inStock" class="text-red-500 text-sm font-medium mb-4">Out of Stock</div>
+                  
+                  <button 
+                    @click="addToCart(product)"
+                    :disabled="!product.inStock || !canAddToCart(product)"
+                    class="bg-primary text-white py-2 px-6 rounded-lg font-medium hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <span v-if="!product.inStock">Out of Stock</span>
+                    <span v-else-if="!canAddToCart(product)">Select Options</span>
+                    <span v-else>Add to Cart</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -179,81 +252,101 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useProductsStore } from '../stores/products'
+import { useCartStore } from '../stores/cart'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-export default {
-  name: 'ProductsList',
-  setup() {
-    const productsStore = useProductsStore()
-    const router = useRouter()
-    
-    const searchQuery = ref('')
-    const selectedCategory = ref('All')
-    const sortBy = ref('name')
-    const viewMode = ref('grid')
-    
-    const categories = computed(() => productsStore.categories)
-    
-    const filteredProducts = computed(() => {
-      let products = productsStore.filteredProducts
-      
-      // Search filter
-      if (searchQuery.value) {
-        const query = searchQuery.value.toLowerCase()
-        products = products.filter(product => 
-          product.name.toLowerCase().includes(query) ||
-          product.description.toLowerCase().includes(query) ||
-          product.category.toLowerCase().includes(query)
-        )
-      }
-      
-      // Sort
-      switch (sortBy.value) {
-        case 'price-low':
-          products = [...products].sort((a, b) => a.price - b.price)
-          break
-        case 'price-high':
-          products = [...products].sort((a, b) => b.price - a.price)
-          break
-        case 'rating':
-          products = [...products].sort((a, b) => b.rating - a.rating)
-          break
-        case 'newest':
-          products = [...products].sort((a, b) => b.id - a.id)
-          break
-        default: // name
-          products = [...products].sort((a, b) => a.name.localeCompare(b.name))
-      }
-      
-      return products
-    })
-    
-    const goToProduct = (id) => {
-      router.push(`/product/${id}`)
-    }
-    
-    const clearFilters = () => {
-      searchQuery.value = ''
-      selectedCategory.value = 'All'
-      productsStore.setCategory('All')
-      sortBy.value = 'name'
-    }
-    
-    return {
-      productsStore,
-      searchQuery,
-      selectedCategory,
-      sortBy,
-      viewMode,
-      categories,
-      filteredProducts,
-      goToProduct,
-      clearFilters
-    }
+const productsStore = useProductsStore()
+const cartStore = useCartStore()
+const router = useRouter()
+
+const searchQuery = ref('')
+const selectedCategory = ref('All')
+const sortBy = ref('name')
+const viewMode = ref('grid')
+const selectedOptions = ref({})
+
+const categories = computed(() => productsStore.categories)
+
+const filteredProducts = computed(() => {
+  let products = productsStore.filteredProducts
+  
+  // Search filter
+  if (searchQuery.value) {
+    const query = searchQuery.value.toLowerCase()
+    products = products.filter(product => 
+      product.name.toLowerCase().includes(query) ||
+      product.description.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query)
+    )
   }
+  
+  // Sort
+  switch (sortBy.value) {
+    case 'price-low':
+      products = [...products].sort((a, b) => a.price - b.price)
+      break
+    case 'price-high':
+      products = [...products].sort((a, b) => b.price - a.price)
+      break
+    case 'rating':
+      products = [...products].sort((a, b) => b.rating - a.rating)
+      break
+    case 'newest':
+      products = [...products].sort((a, b) => b.id - a.id)
+      break
+    default: // name
+      products = [...products].sort((a, b) => a.name.localeCompare(b.name))
+  }
+  
+  return products
+})
+
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'EUR'
+  }).format(price)
+}
+
+const canAddToCart = (product) => {
+  if (!product.inStock) return false
+  
+  // If product has sizes or colors, they must be selected
+  if (product.sizes && !selectedOptions.value[product.id]?.size) return false
+  if (product.colors && !selectedOptions.value[product.id]?.color) return false
+  
+  return true
+}
+
+const addToCart = (product) => {
+  if (!canAddToCart(product)) return
+  
+  const size = selectedOptions.value[product.id]?.size || null
+  const color = selectedOptions.value[product.id]?.color || null
+  
+  cartStore.addItem(product, 1, size, color)
+  
+  // Show success message
+  alert(`${product.name} added to cart!`)
+  
+  // Reset options for this product
+  if (selectedOptions.value[product.id]) {
+    selectedOptions.value[product.id] = {}
+  }
+}
+
+const goToProduct = (id) => {
+  router.push(`/product/${id}`)
+}
+
+const clearFilters = () => {
+  searchQuery.value = ''
+  selectedCategory.value = 'All'
+  productsStore.setCategory('All')
+  sortBy.value = 'name'
 }
 </script>
 
@@ -263,5 +356,33 @@ export default {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.bg-primary {
+  background-color: #3b82f6;
+}
+
+.bg-primary-dark {
+  background-color: #2563eb;
+}
+
+.hover\:bg-primary-dark:hover {
+  background-color: #2563eb;
+}
+
+.text-primary {
+  color: #3b82f6;
+}
+
+.hover\:text-primary:hover {
+  color: #2563eb;
+}
+
+.focus\:ring-primary {
+  --tw-ring-color: #3b82f6;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors;
 }
 </style>
