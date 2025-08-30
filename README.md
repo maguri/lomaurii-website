@@ -1,23 +1,25 @@
-# Lomaurii E-commerce Vue.js Application
+# Lomaurii E-commerce
 
-A modern, responsive e-commerce website built with Vue.js 3, featuring gaming merchandise and community gear for the Lomaurii brand.
+A modern Vue.js 3 e-commerce application for gaming merchandise and accessories.
 
-## 🎮 Features
+## ✨ Features
 
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Product Management**: Complete product catalog with filtering and search
-- **Modern UI/UX**: Beautiful, intuitive interface with smooth animations
-- **Vue 3 Composition API**: Latest Vue.js features and best practices
-- **State Management**: Pinia store for efficient data management
-- **Routing**: Vue Router for seamless navigation
-- **Responsive Images**: Optimized images for all device sizes
+- **Modern Vue.js 3** with Composition API
+- **Responsive Design** with Tailwind CSS
+- **Product Catalog** with search, filtering, and sorting
+- **Direct Stripe Integration** - Buy buttons redirect to Stripe checkout
+- **Product Details** with size/color selection
+- **Mobile-First** responsive design
+- **Fast Performance** with Vite build tool
 
-## 📱 Pages
+## 🏗️ Architecture
 
-1. **Dashboard** (`/`) - Hero section, featured products, about section
-2. **Products List** (`/products`) - Product grid/list view with filters
-3. **Product View** (`/product/:id`) - Detailed product information
-4. **Contact** (`/contact`) - Contact form and company information
+- **Frontend**: Vue.js 3 + Vite + Tailwind CSS
+- **State Management**: Pinia
+- **Routing**: Vue Router
+- **Payment**: Direct Stripe checkout integration
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
 
 ## 🚀 Quick Start
 
@@ -30,155 +32,185 @@ A modern, responsive e-commerce website built with Vue.js 3, featuring gaming me
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd lomaurii-ecommerce
+   git clone <your-repo-url>
+   cd ecommerce
    ```
 
 2. **Install dependencies**
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-3. **Start development server**
+3. **Run development server**
    ```bash
    npm run dev
+   # or
+   yarn dev
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:4000`
 
-### Build for Production
+## 💳 Stripe Integration
 
-```bash
-npm run build
+The application uses **direct Stripe checkout** instead of a traditional cart system:
+
+### How it works:
+
+1. **Product Selection**: Users browse products and select size/color options
+2. **Buy Button**: Clicking "Buy Now" redirects directly to Stripe checkout
+3. **Payment**: Users complete payment on Stripe's secure checkout page
+4. **Success**: Users are redirected back to your site after successful payment
+
+### Setup Stripe:
+
+1. **Create Stripe Account**: Sign up at [stripe.com](https://stripe.com)
+2. **Get API Keys**: Find your publishable and secret keys in the Stripe dashboard
+3. **Create Products**: Add your products in Stripe dashboard
+4. **Update Product IDs**: Add `stripeProductId` to your product data
+
+### Example Product Data:
+```javascript
+{
+  id: 1,
+  name: "Gaming T-Shirt",
+  price: 29.99,
+  stripeProductId: "prod_1234567890", // Your Stripe product ID
+  // ... other properties
+}
 ```
 
-### Preview Production Build
+## 📱 Usage
 
-```bash
-npm run preview
-```
+### For Customers:
+1. Browse products on the main page
+2. Click on a product to view details
+3. Select size/color options if available
+4. Click "Buy Now" to go to Stripe checkout
+5. Complete payment on Stripe's secure page
 
-## 🛠️ Tech Stack
-
-- **Frontend Framework**: Vue.js 3
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **State Management**: Pinia
-- **Routing**: Vue Router 4
-- **Package Manager**: npm
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # Reusable Vue components
-├── views/              # Page components
-│   ├── Dashboard.vue   # Home page
-│   ├── ProductsList.vue # Products listing
-│   ├── ProductView.vue # Individual product view
-│   └── Contact.vue     # Contact page
-├── stores/             # Pinia stores
-│   └── products.js     # Products data management
-├── router/             # Vue Router configuration
-│   └── index.js        # Route definitions
-├── style.css           # Global styles and Tailwind imports
-├── main.js             # Application entry point
-└── App.vue             # Root component
-```
+### For Developers:
+- **Products**: Edit `src/stores/products.js`
+- **Styling**: Modify Tailwind classes in components
+- **Stripe**: Update product IDs and checkout URLs
 
 ## 🎨 Customization
 
 ### Colors
-The application uses a custom color palette defined in `tailwind.config.js`:
-
-- **Primary**: `#6366f1` (Indigo)
-- **Secondary**: `#8b5cf6` (Purple)  
-- **Accent**: `#f59e0b` (Amber)
+Update the primary color scheme in `tailwind.config.js`:
+```javascript
+theme: {
+  extend: {
+    colors: {
+      primary: '#3b82f6', // Blue
+      secondary: '#8b5cf6', // Purple
+    }
+  }
+}
+```
 
 ### Products
-Edit `src/stores/products.js` to modify:
-- Product information
-- Categories
-- Pricing
-- Images
-
-### Content
-Update the following files to customize content:
-- `src/views/Dashboard.vue` - Hero text and about section
-- `src/views/Contact.vue` - Contact information and FAQ
-- `src/App.vue` - Navigation and footer
-
-## 📱 Responsive Design
-
-The application is fully responsive with breakpoints:
-- **Mobile**: `< 768px`
-- **Tablet**: `768px - 1024px`
-- **Desktop**: `> 1024px`
-
-## 🖼️ Images
-
-All product images are sourced from Unsplash for demonstration purposes. In production:
-- Replace with actual product photos
-- Optimize images for web (WebP format recommended)
-- Implement lazy loading for better performance
-
-## 🔗 Social Media Integration
-
-The application includes integration with:
-- **Twitch**: Direct link to [Lomaurii's Twitch channel](https://www.twitch.tv/lomaurii)
-- **Future**: Easy to add more social platforms
+Add/modify products in `src/stores/products.js`:
+```javascript
+{
+  id: 1,
+  name: "Product Name",
+  price: 29.99,
+  description: "Product description",
+  category: "Category",
+  image: "/path/to/image.jpg",
+  stripeProductId: "prod_1234567890",
+  inStock: true,
+  sizes: ["S", "M", "L", "XL"],
+  colors: ["Red", "Blue", "Black"]
+}
+```
 
 ## 🚀 Deployment
 
-### GitHub Pages (Recommended)
-1. **Enable GitHub Pages** in your repository settings
-   - Go to Settings → Pages
-   - Source: GitHub Actions
-   - This will use the workflow to build and deploy automatically
+### Vercel (Recommended)
 
-2. **Push to main branch** - The workflow will automatically:
-   - Build your Vue.js app using GitHub Actions
-   - Deploy to GitHub Pages using official GitHub Actions
-   - Your site will be available at: `https://[username].github.io/[repository-name]/`
+1. **Install Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
 
-3. **Manual Deployment** (Optional)
-   - Go to Actions tab in your repository
-   - Click "Build and Deploy to GitHub Pages"
-   - Click "Run workflow" to manually trigger deployment
+2. **Deploy**
+   ```bash
+   vercel
+   ```
 
-4. **Custom Domain** (Optional)
-   - Add your domain in repository Settings → Pages → Custom domain
+3. **Environment Variables**
+   Add your Stripe keys in Vercel dashboard:
+   - `STRIPE_PUBLISHABLE_KEY`
+   - `STRIPE_SECRET_KEY`
 
-### Netlify
-1. Connect your repository
-2. Build command: `npm run build`
-3. Publish directory: `dist`
+### Other Platforms
 
-### Vercel
-1. Import your repository
-2. Build command: `npm run build`
-3. Output directory: `dist`
+Build the project and deploy the `dist` folder:
+```bash
+npm run build
+# or
+yarn build
+```
 
-### Traditional Hosting
-1. Run `npm run build`
-2. Upload `dist` folder contents to your web server
+## 🔧 Development
 
-## 📝 License
+### Available Scripts
 
-This project is created for Lomaurii's e-commerce needs. All rights reserved.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+### Project Structure
+
+```
+src/
+├── components/          # Reusable components
+├── views/              # Page components
+├── stores/             # Pinia stores
+├── router/             # Vue Router configuration
+├── style.css           # Global styles
+└── main.js            # App entry point
+```
+
+## 🧪 Testing
+
+The application is ready for testing with Stripe's test cards:
+
+- **Test Card**: 4242 4242 4242 4242
+- **Expiry**: Any future date
+- **CVC**: Any 3 digits
+
+## 📈 Roadmap
+
+- [ ] User authentication
+- [ ] Order history
+- [ ] Email notifications
+- [ ] Inventory management
+- [ ] Analytics dashboard
+- [ ] Multi-language support
 
 ## 🤝 Contributing
 
-This is a personal project for Lomaurii. For questions or suggestions, please use the contact form on the website.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-## 📞 Support
+## 📄 License
 
-For technical support or questions about products:
-- Use the contact form on the website
-- Email: hello@lomaurii.com
-- Follow [@lomaurii on Twitch](https://www.twitch.tv/lomaurii)
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+For support or questions:
+- Create an issue in this repository
+- Contact the development team
 
 ---
 
-**Built with ❤️ for the Lomaurii community**
+**Built with ❤️ using Vue.js 3 and Tailwind CSS**

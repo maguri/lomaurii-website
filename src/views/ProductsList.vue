@@ -130,36 +130,14 @@
               <span v-if="!product.inStock" class="text-red-500 text-sm font-medium">Out of Stock</span>
             </div>
 
-            <!-- Product Options -->
-            <div v-if="product.sizes || product.colors" class="mb-4 space-y-2">
-              <!-- Size Selection -->
-              <div v-if="product.sizes" class="flex items-center space-x-2">
-                <span class="text-sm text-gray-600">Size:</span>
-                <select v-model="selectedOptions[product.id]?.size" class="text-sm border border-gray-300 rounded px-2 py-1">
-                  <option value="">Select Size</option>
-                  <option v-for="size in product.sizes" :key="size" :value="size">{{ size }}</option>
-                </select>
-              </div>
-              
-              <!-- Color Selection -->
-              <div v-if="product.colors" class="flex items-center space-x-2">
-                <span class="text-sm text-gray-600">Color:</span>
-                <select v-model="selectedOptions[product.id]?.color" class="text-sm border border-gray-300 rounded px-2 py-1">
-                  <option value="">Select Color</option>
-                  <option v-for="color in product.colors" :key="color" :value="color">{{ color }}</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Add to Cart Button -->
+            <!-- Buy Button -->
             <button 
-              @click="addToCart(product)"
-              :disabled="!product.inStock || !canAddToCart(product)"
+              @click="buyProduct(product)"
+              :disabled="!product.inStock"
               class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               <span v-if="!product.inStock">Out of Stock</span>
-              <span v-else-if="!canAddToCart(product)">Select Options</span>
-              <span v-else>Add to Cart</span>
+              <span v-else>Buy Now - {{ formatPrice(product.price) }}</span>
             </button>
           </div>
         </div>
@@ -196,27 +174,6 @@
                   </h3>
                   
                   <p class="text-gray-600 mb-4">{{ product.description }}</p>
-                  
-                  <!-- Product Options -->
-                  <div v-if="product.sizes || product.colors" class="flex items-center space-x-4 mb-4">
-                    <!-- Size Selection -->
-                    <div v-if="product.sizes" class="flex items-center space-x-2">
-                      <span class="text-sm text-gray-600">Size:</span>
-                      <select v-model="selectedOptions[product.id]?.size" class="text-sm border border-gray-300 rounded px-2 py-1">
-                        <option value="">Select Size</option>
-                        <option v-for="size in product.sizes" :key="size" :value="size">{{ size }}</option>
-                      </select>
-                    </div>
-                    
-                    <!-- Color Selection -->
-                    <div v-if="product.colors" class="flex items-center space-x-2">
-                      <span class="text-sm text-gray-600">Color:</span>
-                      <select v-model="selectedOptions[product.id]?.color" class="text-sm border border-gray-300 rounded px-2 py-1">
-                        <option value="">Select Color</option>
-                        <option v-for="color in product.colors" :key="color" :value="color">{{ color }}</option>
-                      </select>
-                    </div>
-                  </div>
                 </div>
                 
                 <div class="text-right ml-6">
@@ -224,13 +181,12 @@
                   <div v-if="!product.inStock" class="text-red-500 text-sm font-medium mb-4">Out of Stock</div>
                   
                   <button 
-                    @click="addToCart(product)"
-                    :disabled="!product.inStock || !canAddToCart(product)"
+                    @click="buyProduct(product)"
+                    :disabled="!product.inStock"
                     class="bg-primary text-white py-2 px-6 rounded-lg font-medium hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <span v-if="!product.inStock">Out of Stock</span>
-                    <span v-else-if="!canAddToCart(product)">Select Options</span>
-                    <span v-else>Add to Cart</span>
+                    <span v-else>Buy Now - {{ formatPrice(product.price) }}</span>
                   </button>
                 </div>
               </div>
@@ -254,19 +210,16 @@
 
 <script setup>
 import { useProductsStore } from '../stores/products'
-import { useCartStore } from '../stores/cart'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const productsStore = useProductsStore()
-const cartStore = useCartStore()
 const router = useRouter()
 
 const searchQuery = ref('')
 const selectedCategory = ref('All')
 const sortBy = ref('name')
 const viewMode = ref('grid')
-const selectedOptions = ref({})
 
 const categories = computed(() => productsStore.categories)
 
@@ -311,31 +264,18 @@ const formatPrice = (price) => {
   }).format(price)
 }
 
-const canAddToCart = (product) => {
-  if (!product.inStock) return false
+const buyProduct = (product) => {
+  if (!product.inStock) return
   
-  // If product has sizes or colors, they must be selected
-  if (product.sizes && !selectedOptions.value[product.id]?.size) return false
-  if (product.colors && !selectedOptions.value[product.id]?.color) return false
+  // Redirect to Stripe checkout
+  // You can replace this URL with your actual Stripe checkout link
+  const stripeUrl = `https://checkout.stripe.com/pay/${product.stripeProductId || 'demo'}#fid=...`
   
-  return true
-}
-
-const addToCart = (product) => {
-  if (!canAddToCart(product)) return
+  // For demo purposes, show an alert
+  alert(`Redirecting to Stripe checkout for ${product.name}...`)
   
-  const size = selectedOptions.value[product.id]?.size || null
-  const color = selectedOptions.value[product.id]?.color || null
-  
-  cartStore.addItem(product, 1, size, color)
-  
-  // Show success message
-  alert(`${product.name} added to cart!`)
-  
-  // Reset options for this product
-  if (selectedOptions.value[product.id]) {
-    selectedOptions.value[product.id] = {}
-  }
+  // In production, you would redirect to Stripe:
+  // window.location.href = stripeUrl
 }
 
 const goToProduct = (id) => {
@@ -375,7 +315,7 @@ const clearFilters = () => {
 }
 
 .hover\:text-primary:hover {
-  color: #2563eb;
+  color: #3b82f6;
 }
 
 .focus\:ring-primary {

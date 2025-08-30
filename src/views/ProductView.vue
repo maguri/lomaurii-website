@@ -107,7 +107,7 @@
               </div>
 
               <!-- Quantity -->
-              <div class="space-y-3">
+              <!-- <div class="space-y-3">
                 <label class="block text-sm font-medium text-gray-700">Quantity</label>
                 <div class="flex items-center space-x-3">
                   <button @click="decreaseQuantity" 
@@ -125,14 +125,14 @@
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Action Buttons -->
               <div class="space-y-3">
                 <button v-if="product.inStock" 
                         @click="addToCart"
                         class="w-full btn-primary text-lg py-4">
-                  Add to Cart
+                  Buy Now - {{ formatPrice(product.price) }}
                 </button>
                 <button v-else 
                         disabled
@@ -142,7 +142,8 @@
                 
                 <div class="flex space-x-3">
                   <button @click="addToWishlist" 
-                          class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors">
+                          :class="isInWishlist ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                          class="flex-1 rounded-lg font-medium transition-colors">
                     <svg class="w-5 h-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
@@ -249,7 +250,7 @@ export default {
     const selectedImage = ref('')
     const selectedSize = ref('')
     const selectedColor = ref('')
-    const quantity = ref(1)
+    const wishlistItems = ref(new Set())
     
     const product = computed(() => productsStore.getProductById(props.id))
     
@@ -258,6 +259,10 @@ export default {
       return productsStore.products
         .filter(p => p.id !== product.value.id && p.category === product.value.category)
         .slice(0, 4)
+    })
+    
+    const isInWishlist = computed(() => {
+      return wishlistItems.value.has(product.value?.id)
     })
     
     onMounted(() => {
@@ -272,24 +277,28 @@ export default {
       }
     })
     
-    const increaseQuantity = () => {
-      quantity.value++
-    }
-    
-    const decreaseQuantity = () => {
-      if (quantity.value > 1) {
-        quantity.value--
-      }
-    }
-    
     const addToCart = () => {
-      // TODO: Implement cart functionality
-      alert(`Added ${quantity.value} ${product.value.name} to cart!`)
+      // Redirect to Stripe checkout
+      if (!product.value.inStock) return
+      
+      // You can replace this URL with your actual Stripe checkout link
+      const stripeUrl = `https://checkout.stripe.com/pay/${product.value.stripeProductId || 'demo'}#fid=...`
+      
+      // For demo purposes, show an alert
+      alert(`Redirecting to Stripe checkout for ${product.value.name}...`)
+      
+      // In production, you would redirect to Stripe:
+      // window.location.href = stripeUrl
     }
     
     const addToWishlist = () => {
-      // TODO: Implement wishlist functionality
-      alert(`Added ${product.value.name} to wishlist!`)
+      if (wishlistItems.value.has(product.value.id)) {
+        wishlistItems.value.delete(product.value.id)
+        alert(`Removed ${product.value.name} from wishlist!`)
+      } else {
+        wishlistItems.value.add(product.value.id)
+        alert(`Added ${product.value.name} to wishlist!`)
+      }
     }
     
     const shareProduct = () => {
@@ -309,19 +318,25 @@ export default {
       router.push(`/product/${id}`)
     }
     
+    const formatPrice = (price) => {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(price);
+    };
+    
     return {
       product,
       selectedImage,
       selectedSize,
       selectedColor,
-      quantity,
       relatedProducts,
-      increaseQuantity,
-      decreaseQuantity,
+      isInWishlist,
       addToCart,
       addToWishlist,
       shareProduct,
-      goToProduct
+      goToProduct,
+      formatPrice
     }
   }
 }

@@ -4,9 +4,6 @@ import ProductsList from '../views/ProductsList.vue'
 import ProductView from '../views/ProductView.vue'
 import Contact from '../views/Contact.vue'
 import Server from '../views/Server.vue'
-import Checkout from '../components/Checkout.vue'
-import PaymentSuccess from '../views/PaymentSuccess.vue'
-import PaymentError from '../views/PaymentError.vue'
 
 const routes = [
   {
@@ -24,21 +21,6 @@ const routes = [
     name: 'ProductView',
     component: ProductView,
     props: true
-  },
-  {
-    path: '/checkout',
-    name: 'Checkout',
-    component: Checkout
-  },
-  {
-    path: '/payment-success',
-    name: 'PaymentSuccess',
-    component: PaymentSuccess
-  },
-  {
-    path: '/payment-error',
-    name: 'PaymentError',
-    component: PaymentError
   },
   {
     path: '/contact',
