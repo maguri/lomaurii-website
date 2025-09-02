@@ -6,11 +6,11 @@
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div class="text-center">
           <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-            Gaming Servers
+            Servidores de Juego
           </h1>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join Lomaurii and the community on our carefully curated gaming servers. 
-            Experience the best multiplayer gaming with fellow streamers and gamers.
+            Únete a Lomaurii y la comunidad en nuestros servidores de juego cuidadosamente seleccionados. 
+            Experimenta el mejor gaming multijugador con otros streamers y gamers.
           </p>
         </div>
       </div>
@@ -27,50 +27,50 @@
             <div class="absolute top-4 right-4">
               <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500 text-white">
                 <span class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
-                Online
+                En Línea
               </span>
             </div>
             <div class="absolute bottom-4 left-4">
               <h3 class="text-2xl font-bold text-white">Norfigame</h3>
-              <p class="text-blue-200">Gaming Community</p>
+              <p class="text-blue-200">DayZ Server P.V.P.</p>
             </div>
           </div>
 
           <!-- Server Info -->
           <div class="p-6">
             <div class="flex items-center justify-between mb-4">
-              <h4 class="text-xl font-semibold text-white">Norfigame Server</h4>
+              <h4 class="text-xl font-semibold text-white">Servidor Norfigame</h4>
               <div class="flex items-center space-x-2">
                 <span class="text-green-400 text-sm">●</span>
-                <span class="text-gray-300 text-sm">Active</span>
+                <span class="text-gray-300 text-sm">Activo</span>
               </div>
             </div>
 
             <p class="text-gray-300 mb-4 leading-relaxed">
-              A premier gaming community server where Lomaurii and fellow streamers gather for epic multiplayer sessions. 
-              Experience competitive gameplay, community events, and exclusive tournaments.
+              Un servidor de comunidad gaming de primer nivel donde Lomaurii y otros streamers se reúnen para sesiones multijugador épicas. 
+              Experimenta gameplay competitivo, eventos comunitarios y torneos exclusivos.
             </p>
 
             <!-- Server Stats -->
             <div class="grid grid-cols-2 gap-4 mb-6">
               <div class="text-center">
                 <div class="text-2xl font-bold text-purple-400">1500+</div>
-                <div class="text-xs text-gray-400">Members</div>
+                <div class="text-xs text-gray-400">Miembros</div>
               </div>
               <div class="text-center">
                 <div class="text-2xl font-bold text-blue-400">24/7</div>
-                <div class="text-xs text-gray-400">Uptime</div>
+                <div class="text-xs text-gray-400">Tiempo Activo</div>
               </div>
             </div>
 
             <!-- Features -->
             <div class="mb-6">
-              <h5 class="text-white font-medium mb-3">Server Features:</h5>
+              <h5 class="text-white font-medium mb-3">Características del Servidor:</h5>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full">Discord Integration</span>
-                <span class="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full">Tournaments</span>
-                <span class="px-3 py-1 bg-green-600/20 text-green-300 text-xs rounded-full">Community Events</span>
-                <span class="px-3 py-1 bg-yellow-600/20 text-yellow-300 text-xs rounded-full">Streamer Support</span>
+                <span class="px-3 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full">Integración Discord</span>
+                <span class="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full">Torneos</span>
+                <span class="px-3 py-1 bg-green-600/20 text-green-300 text-xs rounded-full">Eventos Comunitarios</span>
+                <span class="px-3 py-1 bg-yellow-600/20 text-yellow-300 text-xs rounded-full">Soporte para Streamers</span>
               </div>
             </div>
 
@@ -82,8 +82,8 @@
                   </div>
                 </div>
                 <div>
-                  <h6 class="text-white font-medium">Lomaurii's Home Server</h6>
-                  <p class="text-purple-300 text-sm">Join Lomaurii's community and participate in exclusive events</p>
+                  <h6 class="text-white font-medium">Servidor DayZ</h6>
+                  <p class="text-purple-300 text-sm">Únete a la comunidad de Lomaurii y participa en eventos exclusivos</p>
                 </div>
               </div>
             </div>
@@ -97,9 +97,9 @@
             </svg>
             Join Discord
           </a>
-              <button class="px-4 py-2 border border-purple-500 text-purple-300 rounded-lg hover:bg-purple-500/20 transition-all duration-200">
-                Learn More
-              </button>
+              <router-link to="/faq" class="px-4 py-2 border border-purple-500 text-purple-300 rounded-lg hover:bg-purple-500/20 transition-all duration-200">
+                Aprender Más
+              </router-link>
             </div>
           </div>
         </div>
@@ -112,13 +112,13 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
               </svg>
             </div>
-            <h4 class="text-xl font-semibold text-white mb-2">More Servers Coming</h4>
+            <h4 class="text-xl font-semibold text-white mb-2">Más Servidores Próximamente</h4>
             <p class="text-gray-400 mb-4">
-              We're constantly expanding our network of gaming servers. 
-              Stay tuned for more exciting communities to join!
+              Estamos constantemente expandiendo nuestra red de servidores de juego. 
+              ¡Mantente atento para más comunidades emocionantes a las que unirte!
             </p>
             <button class="px-6 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-colors duration-200">
-              Notify Me
+              Notificarme
             </button>
           </div>
         </div>
@@ -126,15 +126,15 @@
 
       <!-- Community Section -->
       <div class="mt-20 text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">Join the Community</h2>
+        <h2 class="text-3xl font-bold text-white mb-6">Bienvenido a esta pequeña Comunidad!</h2>
         <p class="text-gray-300 max-w-2xl mx-auto mb-8">
-          Connect with fellow gamers, participate in tournaments, and be part of exclusive events 
-          hosted by Lomaurii and the community.
+          Conéctate con otros gamers, participa en torneos y sé parte de eventos exclusivos 
+          organizados por Lomaurii y la comunidad.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
                      <router-link to="/contact" 
                      class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-200 flex items-center justify-center">
-             Follow Lomaurii
+             Seguir a Lomaurii
            </router-link>
         </div>
       </div>

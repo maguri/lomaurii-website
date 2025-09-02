@@ -4,10 +4,10 @@
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Get in Touch
+          Ponte en Contacto
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Have questions about our products or want to collaborate? We'd love to hear from you!
+          ¿Tienes preguntas sobre nuestros productos o quieres colaborar? ¡Nos encantaría saber de ti!
         </p>
       </div>
 
@@ -15,7 +15,7 @@
         
           <!-- Social Media -->
           <div class="bg-white rounded-xl shadow-lg p-8" id="#social">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Connect With Us</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Conéctate con Nosotros</h2>
             <div class="space-y-4">
               <a href="https://discord.gg/uYcmUMwtUr" target="_blank" rel="noopener noreferrer" 
                  class="flex items-center p-4 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors group">
@@ -25,8 +25,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 group-hover:text-indigo-600">Discord Server</h3>
-                  <p class="text-gray-600">Join our community and chat with other gamers</p>
+                  <h3 class="font-semibold text-gray-900 group-hover:text-indigo-600">Servidor de Discord</h3>
+                  <p class="text-gray-600">Únete a nuestra comunidad y chatea con otros gamers</p>
                 </div>
                 <svg class="w-5 h-5 text-gray-400 ml-auto group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -41,8 +41,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 group-hover:text-purple-600">Twitch Channel</h3>
-                  <p class="text-gray-600">Watch live streams and gaming content</p>
+                  <h3 class="font-semibold text-gray-900 group-hover:text-purple-600">Canal de Twitch</h3>
+                  <p class="text-gray-600">Mira transmisiones en vivo y contenido gaming</p>
                 </div>
                 <svg class="w-5 h-5 text-gray-400 ml-auto group-hover:text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -58,7 +58,7 @@
                 </div>
                 <div>
                   <h3 class="font-semibold text-gray-900 group-hover:text-black">TikTok</h3>
-                  <p class="text-gray-600">Follow for short-form gaming content</p>
+                  <p class="text-gray-600">Síguenos para contenido gaming de formato corto</p>
                 </div>
                 <svg class="w-5 h-5 text-gray-400 ml-auto group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -74,7 +74,7 @@
                 </div>
                 <div>
                   <h3 class="font-semibold text-gray-900 group-hover:text-pink-600">Instagram</h3>
-                  <p class="text-gray-600">Follow for gaming lifestyle and updates</p>
+                  <p class="text-gray-600">Síguenos para estilo de vida gaming y actualizaciones</p>
                 </div>
                 <svg class="w-5 h-5 text-gray-400 ml-auto group-hover:text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -90,14 +90,14 @@
                 </div>
                 <div>
                   <h3 class="font-semibold text-gray-900 group-hover:text-red-600">YouTube</h3>
-                  <p class="text-gray-600">Subscribe for gaming videos and tutorials</p>
+                  <p class="text-gray-600">Suscríbete para videos gaming y tutoriales</p>
                 </div>
                 <svg class="w-5 h-5 text-gray-400 ml-auto group-hover:text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
             </div>
-            <h2 class="text-2xl font-bold text-gray-900 mt-6 mb-6">Contact Details</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mt-6 mb-6">Detalles de Contacto</h2>
             <div class="space-y-4">
               <div class="flex items-center">
                 <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-4">
@@ -118,21 +118,21 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900">Response Time</h3>
-                  <p class="text-gray-600">Within 24 hours</p>
+                  <h3 class="font-semibold text-gray-900">Tiempo de Respuesta</h3>
+                  <p class="text-gray-600">Dentro de 24 horas</p>
                 </div>
               </div>
             </div>
           </div>
         <!-- Contact Form -->
         <div class="bg-white rounded-xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Envíanos un Mensaje</h2>
           
           <form @submit.prevent="submitForm" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
-                  First Name *
+                  Nombre *
                 </label>
                 <input 
                   id="firstName"
@@ -140,12 +140,12 @@
                   type="text" 
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Your first name"
+                  placeholder="Tu nombre"
                 >
               </div>
               <div>
                 <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
-                  Last Name *
+                  Apellido *
                 </label>
                 <input 
                   id="lastName"
@@ -153,14 +153,14 @@
                   type="text" 
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Your last name"
+                  placeholder="Tu apellido"
                 >
               </div>
             </div>
 
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                Email Address *
+                Dirección de Email *
               </label>
               <input 
                 id="email"
@@ -168,13 +168,13 @@
                 type="email" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="your.email@example.com"
+                placeholder="tu.email@ejemplo.com"
               >
             </div>
 
             <div>
               <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
-                Subject *
+                Asunto *
               </label>
               <select 
                 id="subject"
@@ -182,19 +182,19 @@
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               >
-                <option value="">Select a subject</option>
-                <option value="general">General Inquiry</option>
-                <option value="product">Product Question</option>
-                <option value="order">Order Status</option>
-                <option value="support">Technical Support</option>
-                <option value="collaboration">Collaboration</option>
-                <option value="other">Other</option>
+                <option value="">Selecciona un asunto</option>
+                <option value="general">Consulta General</option>
+                <option value="product">Pregunta sobre Producto</option>
+                <option value="order">Estado del Pedido</option>
+                <option value="support">Soporte Técnico</option>
+                <option value="collaboration">Colaboración</option>
+                <option value="other">Otro</option>
               </select>
             </div>
 
             <div>
               <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-                Message *
+                Mensaje *
               </label>
               <textarea 
                 id="message"
@@ -202,7 +202,7 @@
                 rows="6" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Tell us how we can help you..."
+                placeholder="Cuéntanos cómo podemos ayudarte..."
               ></textarea>
             </div>
 
@@ -214,7 +214,7 @@
                 class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
               >
               <label for="newsletter" class="ml-2 block text-sm text-gray-700">
-                Subscribe to our newsletter for updates and exclusive offers
+                Suscríbete a nuestro boletín para actualizaciones y ofertas exclusivas
               </label>
             </div>
 
@@ -228,9 +228,9 @@
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Sending...
+                Enviando...
               </span>
-              <span v-else>Send Message</span>
+              <span v-else>Enviar Mensaje</span>
             </button>
           </form>
 
@@ -244,7 +244,7 @@
               </div>
               <div class="ml-3">
                 <p class="text-sm text-green-800">
-                  Thank you for your message! We'll get back to you as soon as possible.
+                  ¡Gracias por tu mensaje! Te responderemos lo antes posible.
                 </p>
               </div>
             </div>

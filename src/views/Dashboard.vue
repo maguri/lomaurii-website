@@ -11,10 +11,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div class="mb-8">
           <h1 class="text-4xl md:text-6xl font-bold mb-6">
-            Welcome to <span class="text-accent">Lomaurii's</span> community
+            Bienvenido a la comunidad de <span class="text-accent">Lomaurii</span>
           </h1>
           <p class="text-xl md:text-2xl mb-8 text-blue-100">
-            Premium gaming merchandise for the ultimate gaming experience
+            Comunidad gaming y tienda premium para la experiencia de supervivencia definitiva
           </p>
           <!-- Tip Buttons in Hero Section -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -22,7 +22,7 @@
                 target="_blank" rel="noopener noreferrer"
                 class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 text-center flex items-center justify-center">
                
-               Support with PayPal 💙
+               Apoyar con PayPal 💙
              </a>
             <a href="https://discord.gg/uYcmUMwtUr" target="_blank" rel="noopener noreferrer" 
                   class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2">
@@ -43,15 +43,15 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           <div class="text-center">
             <div class="text-3xl font-bold mb-2">{{ productsStore.products.length }}+</div>
-            <div class="text-blue-100">Premium Products</div>
+            <div class="text-blue-100">Productos Premium</div>
           </div>
           <div class="text-center">
             <div class="text-3xl font-bold mb-2">100%</div>
-            <div class="text-blue-100">Quality Guaranteed</div>
+            <div class="text-blue-100">Calidad Garantizada</div>
           </div>
           <div class="text-center">
             <div class="text-3xl font-bold mb-2">24/7</div>
-            <div class="text-blue-100">Customer Support</div>
+            <div class="text-blue-100">Soporte al Cliente</div>
           </div>
         </div>
       </div>
@@ -62,10 +62,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Featured Products
+            Productos Destacados
           </h2>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular gaming gear and merchandise, carefully selected for the ultimate gaming experience.
+            Descubre nuestro equipo gaming y mercancía más popular, cuidadosamente seleccionado para la experiencia gaming definitiva.
           </p>
         </div>
         
@@ -78,7 +78,7 @@
                    class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
               <div v-if="!product.inStock" 
                    class="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-medium">
-                Out of Stock
+                Sin Stock
               </div>
             </div>
             <div class="p-6">
@@ -101,7 +101,7 @@
         
         <div class="text-center mt-12">
           <router-link to="/products" class="btn-primary text-lg px-8 py-3">
-            View All Products
+            Ver Todos los Productos
           </router-link>
         </div>
       </div>
@@ -113,15 +113,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              About Lomaurii
+              Acerca de Lomaurii
             </h2>
             <p class="text-lg text-gray-600 mb-6">
-              Welcome to the official Lomaurii merchandise store! As a passionate gamer and content creator, 
-              I've curated a collection of premium gaming gear that meets the highest standards of quality and style.
+              ¡Bienvenido a la tienda oficial de mercancía de Lomaurii! Como un gamer apasionado y creador de contenido, 
+              he curado una colección de equipo gaming premium que cumple con los más altos estándares de calidad y estilo.
             </p>
             <p class="text-lg text-gray-600 mb-8">
-              From comfortable gaming apparel to high-performance accessories, every product is designed with 
-              gamers in mind. Join our community and represent Lomaurii with pride!
+              Desde ropa gaming cómoda hasta accesorios de alto rendimiento, cada producto está diseñado pensando 
+              en los gamers. ¡Únete a nuestra comunidad y representa a Lomaurii con orgullo!
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <a href="https://www.twitch.tv/lomaurii" target="_blank" rel="noopener noreferrer" 
@@ -129,18 +129,18 @@
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
                 </svg>
-                Follow on Twitch
+                Ver en Twitch
               </a>
               <router-link to="/contact" class="btn-secondary text-center">
-                Get in Touch
+                Ponerse en Contacto
               </router-link>
             </div>
           </div>
           <div class="relative">
             <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-white text-center">
               <div class="text-6xl mb-4">🎮</div>
-              <h3 class="text-2xl font-bold mb-2">Live Streaming</h3>
-              <p class="text-blue-100">Join me live on Twitch for gaming content, community interaction, and exclusive merchandise reveals!</p>
+              <h3 class="text-2xl font-bold mb-2">Transmisión en Vivo</h3>
+              <p class="text-blue-100">¡Únete a mí en vivo en Twitch para contenido gaming, interacción comunitaria y revelaciones exclusivas de mercancía!</p>
             </div>
           </div>
         </div>
@@ -152,10 +152,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Shop by Category
+            Comprar por Categoría
           </h2>
           <p class="text-lg text-gray-600">
-            Find exactly what you're looking for in our organized product categories
+            Encuentra exactamente lo que buscas en nuestras categorías de productos organizadas
           </p>
         </div>
         
@@ -205,7 +205,8 @@ export default {
         'Accessories': '🎒',
         'Audio': '🎧',
         'Peripherals': '⌨️',
-        'Furniture': '🪑'
+        'Furniture': '🪑',
+        'Survival': '🔦'
       }
       return icons[category] || '🛍️'
     }

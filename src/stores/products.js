@@ -85,7 +85,7 @@ export const useProductsStore = defineStore('products', {
         inStock: false,
         rating: 4.9,
         reviews: 312,
-        featured: true
+        featured: false
       },
       {
         id: 6,
@@ -102,9 +102,57 @@ export const useProductsStore = defineStore('products', {
         rating: 4.5,
         reviews: 78,
         featured: false
+      },
+      {
+        id: 7,
+        name: "Linterna Táctica LED",
+        description: "Linterna táctica profesional con 1000 lúmenes de potencia. Perfecta para actividades al aire libre, camping, senderismo y emergencias. Resistente al agua y golpes.",
+        price: 34.99,
+        category: "Survival",
+        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+        images: [
+          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center"
+        ],
+        inStock: true,
+        rating: 4.7,
+        reviews: 95,
+        featured: true
+      },
+      {
+        id: 8,
+        name: "Linterna de Cabeza Recargable",
+        description: "Linterna de cabeza con batería recargable USB. Ideal para actividades nocturnas, trabajo en espacios oscuros y aventuras al aire libre. Luz ajustable y cómoda de llevar.",
+        price: 24.99,
+        category: "Survival",
+        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+        images: [
+          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center"
+        ],
+        inStock: true,
+        rating: 4.5,
+        reviews: 67,
+        featured: false
+      },
+      {
+        id: 9,
+        name: "Linterna Compacta de Bolsillo",
+        description: "Linterna ultra compacta y ligera perfecta para llevar en el bolsillo o mochila. 500 lúmenes de potencia en un diseño minimalista. Ideal para emergencias y uso diario.",
+        price: 19.99,
+        category: "Survival",
+        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+        images: [
+          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center"
+        ],
+        inStock: true,
+        rating: 4.6,
+        reviews: 89,
+        featured: false
       }
     ],
-    categories: ["All", "Clothing", "Accessories", "Audio", "Peripherals", "Furniture"],
+    categories: ["All", "Clothing", "Accessories", "Audio", "Peripherals", "Furniture", "Survival"],
     selectedCategory: "All"
   }),
   
