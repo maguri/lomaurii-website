@@ -97,6 +97,32 @@
                 </svg>
               </a>
             </div>
+            <h2 class="text-2xl font-bold text-gray-900 mt-6 mb-6">Contact Details</h2>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-4">
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900">Email</h3>
+                  <p class="text-gray-600">*********@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-4">
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900">Response Time</h3>
+                  <p class="text-gray-600">Within 24 hours</p>
+                </div>
+              </div>
+            </div>
           </div>
         <!-- Contact Form -->
         <div class="bg-white rounded-xl shadow-lg p-8">
@@ -225,9 +251,11 @@
           </div>
         </div>
 
+        
         <!-- Contact Information -->
         <div class="space-y-8">
-          <!-- About Lomaurii -->
+          
+          <!-- About Lomaurii
           <div class="bg-white rounded-xl shadow-lg p-8">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">About Lomaurii</h2>
             <div class="space-y-4 text-gray-600">
@@ -242,61 +270,10 @@
               <p>
                 Join our growing community and represent Lomaurii with pride!
               </p>
-            </div>
-          </div>
+            </div> -->
+            
+          <!-- </div> -->
 
-          <!-- Contact Details -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Contact Details</h2>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-4">
-                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900">Email</h3>
-                  <p class="text-gray-600">hello@lomaurii.com</p>
-                </div>
-              </div>
-              
-              <div class="flex items-center">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-4">
-                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900">Response Time</h3>
-                  <p class="text-gray-600">Within 24 hours</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-              <div class="border-b border-gray-200 pb-4">
-                <h3 class="font-semibold text-gray-900 mb-2">How long does shipping take?</h3>
-                <p class="text-gray-600">Standard shipping typically takes 3-5 business days within the US.</p>
-              </div>
-              <div class="border-b border-gray-200 pb-4">
-                <h3 class="font-semibold text-gray-900 mb-2">Do you ship internationally?</h3>
-                <p class="text-gray-600">Yes, we ship to most countries worldwide. Shipping times and costs vary by location.</p>
-              </div>
-              <div class="border-b border-gray-200 pb-4">
-                <h3 class="font-semibold text-gray-900 mb-2">What's your return policy?</h3>
-                <p class="text-gray-600">We offer a 30-day return policy for unused items in original packaging.</p>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Can I customize products?</h3>
-                <p class="text-gray-600">Some products offer customization options. Contact us for specific requests.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
