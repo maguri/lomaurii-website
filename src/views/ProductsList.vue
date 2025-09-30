@@ -267,15 +267,14 @@ const formatPrice = (price) => {
 const buyProduct = (product) => {
   if (!product.inStock) return
   
-  // Redirect to Stripe checkout
-  // You can replace this URL with your actual Stripe checkout link
-  const stripeUrl = `https://checkout.stripe.com/pay/${product.stripeProductId || 'demo'}#fid=...`
-  
-  // For demo purposes, show an alert
-  alert(`Redirecting to Stripe checkout for ${product.name}...`)
-  
-  // In production, you would redirect to Stripe:
-  // window.location.href = stripeUrl
+  // Check if stripePaymentLink is available
+  if (product.stripePaymentLink && product.stripePaymentLink.trim() !== '') {
+    // Redirect to the Stripe payment link
+    window.open(product.stripePaymentLink, '_blank')
+  } else {
+    // Fallback for demo purposes
+    alert(`Stripe payment link not configured for ${product.name}. Please contact support.`)
+  }
 }
 
 const goToProduct = (id) => {

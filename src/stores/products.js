@@ -5,37 +5,35 @@ export const useProductsStore = defineStore('products', {
     products: [
       {
         id: 1,
-        name: "Lomaurii Gaming T-Shirt",
-        description: "Premium cotton gaming t-shirt featuring the Lomaurii logo. Perfect for streamers and gamers who want to represent their favorite content creator.",
-        price: 29.99,
-        category: "Clothing",
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop&crop=center",
+        name: "Linterna BH5",
+        description: "Linterna BH5 by lomaurii: mini linterna LED recargable de bolsillo, compacta y ligera (71,9 g). Ofrece hasta 1500 lúmenes con 5 modos de uso (Alto, Medio, Bajo, Strobe y SOS). Fabricada en aleación de aluminio, con certificación IP68, ideal para camping y exteriores. Funciona con batería de litio 18350, con autonomía de 6 h y vida útil de 50.000 horas. Potente, resistente y fácil de llevar a cualquier lugar.",
+        price: 21.99,
+        category: "Survival",
+        image: "https://stripe-camo.global.ssl.fastly.net/8f8e3cc3309c07c2252fff6b11deed6fe4e00b1d83e5402960ddb27d271e139f/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878536a424f5a32464b596d64565a6c52355155526e66475a7358327870646d5666536a6435614656745257354d566e4675536d7432537a4e6c516e4a30655564433030516441506c6c5037/6d65726368616e745f69643d616363745f314a304e67614a62675566547941446726636c69656e743d5041594d454e545f50414745",
         images: [
-          "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500&h=500&fit=crop&crop=center"
+          "https://stripe-camo.global.ssl.fastly.net/8f8e3cc3309c07c2252fff6b11deed6fe4e00b1d83e5402960ddb27d271e139f/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878536a424f5a32464b596d64565a6c52355155526e66475a7358327870646d5666536a6435614656745257354d566e4675536d7432537a4e6c516e4a30655564433030516441506c6c5037/6d65726368616e745f69643d616363745f314a304e67614a62675566547941446726636c69656e743d5041594d454e545f50414745"
         ],
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["Black", "White", "Navy"],
         inStock: true,
-        rating: 4.8,
-        reviews: 127,
-        featured: true
+        rating: 4.7,
+        reviews: 5,
+        featured: true,
+        stripePaymentLink: ""
       },
       {
         id: 2,
-        name: "Gaming Mouse Pad",
-        description: "Extra large RGB gaming mouse pad with Lomaurii branding. Features smooth surface for precise mouse movement and stunning LED lighting effects.",
-        price: 24.99,
-        category: "Accessories",
-        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop&crop=center",
+        name: "Linterna S50",
+        description: "Linterna E-SMARTER XQS50La linterna que combina potencia, resistencia y ligereza.Más de 1000 lúmenes con luz blanca de 5000K.Batería recargable 18650 con hasta 6 horas de autonomía.Cuerpo de aleación de aluminio, impermeable IP55.Zoom ajustable y foco láser blanco.Solo 99 g de peso y 10.000 horas de vida útil.Ideal para emergencias, actividades al aire libre y uso diario. ENVIO GRATIS",
+        price: 23.99,
+        category: "Survival",
+        image: "https://stripe-camo.global.ssl.fastly.net/44eddf6c07cd2ca432ddca9fcc03cea7f591718b169c098988c95320008eeb9c/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878536a424f5a32464b596d64565a6c52355155526e66475a7358327870646d5666546d4a354f466c594d464178576b38356145396c516d56456347747059334e4630303963374b54794e6d/6d65726368616e745f69643d616363745f314a304e67614a62675566547941446726636c69656e743d5041594d454e545f50414745",
         images: [
-          "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop&crop=center"
+          "https://stripe-camo.global.ssl.fastly.net/44eddf6c07cd2ca432ddca9fcc03cea7f591718b169c098988c95320008eeb9c/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878536a424f5a32464b596d64565a6c52355155526e66475a7358327870646d5666546d4a354f466c594d464178576b38356145396c516d56456347747059334e4630303963374b54794e6d/6d65726368616e745f69643d616363745f314a304e67614a62675566547941446726636c69656e743d5041594d454e545f50414745"
         ],
         inStock: true,
-        rating: 4.6,
-        reviews: 89,
-        featured: true
+        rating: 4.5,
+        reviews: 6,
+        featured: false,
+        stripePaymentLink: "https://buy.stripe.com/7sYcN6g7V2YH4DtdJx9IQ0n"
       },
       {
         id: 3,
@@ -48,10 +46,11 @@ export const useProductsStore = defineStore('products', {
           "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop&crop=center",
           "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop&crop=center"
         ],
-        inStock: true,
+        inStock: false,
         rating: 4.9,
         reviews: 203,
-        featured: false
+        featured: false,
+        stripePaymentLink: ""
       },
       {
         id: 4,
@@ -66,10 +65,11 @@ export const useProductsStore = defineStore('products', {
         ],
         sizes: ["S", "M", "L", "XL", "XXL"],
         colors: ["Black", "Gray", "Navy"],
-        inStock: true,
+        inStock: false,
         rating: 4.7,
         reviews: 156,
-        featured: false
+        featured: false,
+        stripePaymentLink: ""
       },
       {
         id: 5,
@@ -85,7 +85,8 @@ export const useProductsStore = defineStore('products', {
         inStock: false,
         rating: 4.9,
         reviews: 312,
-        featured: false
+        featured: false,
+        stripePaymentLink: ""
       },
       {
         id: 6,
@@ -98,58 +99,47 @@ export const useProductsStore = defineStore('products', {
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop&crop=center",
           "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop&crop=center"
         ],
-        inStock: true,
+        inStock: false,
         rating: 4.5,
         reviews: 78,
-        featured: false
+        featured: false,
+        stripePaymentLink: ""
       },
       {
         id: 7,
-        name: "Linterna Táctica LED",
-        description: "Linterna táctica profesional con 1000 lúmenes de potencia. Perfecta para actividades al aire libre, camping, senderismo y emergencias. Resistente al agua y golpes.",
-        price: 34.99,
-        category: "Survival",
-        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+        name: "Lomaurii Gaming T-Shirt",
+        description: "Premium cotton gaming t-shirt featuring the Lomaurii logo. Perfect for streamers and gamers who want to represent their favorite content creator.",
+        price: 29.99,
+        category: "Clothing",
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop&crop=center",
         images: [
-          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center"
+          "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop&crop=center",
+          "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500&h=500&fit=crop&crop=center"
         ],
-        inStock: true,
-        rating: 4.7,
-        reviews: 95,
-        featured: true
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        colors: ["Black", "White", "Navy"],
+        inStock: false,
+        rating: 4.8,
+        reviews: 127,
+        featured: true,
+        stripePaymentLink: ""
       },
       {
         id: 8,
-        name: "Linterna de Cabeza Recargable",
-        description: "Linterna de cabeza con batería recargable USB. Ideal para actividades nocturnas, trabajo en espacios oscuros y aventuras al aire libre. Luz ajustable y cómoda de llevar.",
+        name: "Gaming Mouse Pad",
+        description: "Extra large RGB gaming mouse pad with Lomaurii branding. Features smooth surface for precise mouse movement and stunning LED lighting effects.",
         price: 24.99,
-        category: "Survival",
-        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
+        category: "Accessories",
+        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop&crop=center",
         images: [
-          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center"
+          "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop&crop=center",
+          "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=500&fit=crop&crop=center"
         ],
-        inStock: true,
-        rating: 4.5,
-        reviews: 67,
-        featured: false
-      },
-      {
-        id: 9,
-        name: "Linterna Compacta de Bolsillo",
-        description: "Linterna ultra compacta y ligera perfecta para llevar en el bolsillo o mochila. 500 lúmenes de potencia en un diseño minimalista. Ideal para emergencias y uso diario.",
-        price: 19.99,
-        category: "Survival",
-        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
-        images: [
-          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center",
-          "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&h=500&fit=crop&crop=center"
-        ],
-        inStock: true,
+        inStock: false,
         rating: 4.6,
         reviews: 89,
-        featured: false
+        featured: true,
+        stripePaymentLink: ""
       }
     ],
     categories: ["All", "Clothing", "Accessories", "Audio", "Peripherals", "Furniture", "Survival"],
