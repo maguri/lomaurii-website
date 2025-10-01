@@ -132,7 +132,7 @@
                 <button v-if="product.inStock" 
                         @click="addToCart"
                         class="w-full btn-primary text-lg py-4">
-                  Buy Now - {{ formatPrice(product.price) }}
+                  Comprar - {{ formatPrice(product.price) }}
                 </button>
                 <button v-else 
                         disabled
