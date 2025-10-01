@@ -17,7 +17,7 @@ export const useProductsStore = defineStore('products', {
         rating: 4.7,
         reviews: 5,
         featured: true,
-        stripePaymentLink: ""
+        stripePaymentLink: "https://buy.stripe.com/aFa8wQ4pdeHp3zpaxl9IQ0o"
       },
       {
         id: 2,
