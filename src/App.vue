@@ -6,7 +6,7 @@
           <div class="flex items-center">
             <router-link to="/" class="flex-shrink-0 flex items-center">
               <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
-                <img src="./assets/logo.jpg" alt="Lomaurii Logo" class="w-10 h-10"></img>
+                <img src="./assets/logo-trans.png" alt="Lomaurii Logo" class="w-10 h-10"></img>
               </div>
               <div class="ml-3">
                 <span class="text-xl font-bold text-gray-900">Lomaurii</span>
@@ -53,7 +53,7 @@
             
             <!-- Tip Buttons -->
             <div class="flex items-center space-x-2">
-              <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" 
+              <a href="https://buy.stripe.com/4gM00k3l90Qz1rh6h59IQ0m" 
                  target="_blank" rel="noopener noreferrer"
                  class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg font-medium transition-colors duration-200 text-sm">
                                  💙 Donar
@@ -99,7 +99,7 @@
           
           <!-- Mobile Tip Buttons -->
           <div class="pt-2 border-t border-gray-200 mt-2">
-            <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" 
+            <a href="https://buy.stripe.com/4gM00k3l90Qz1rh6h59IQ0m" 
                target="_blank" rel="noopener noreferrer"
                class="block w-full text-left px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md">
                              💙 Propinas PayPal

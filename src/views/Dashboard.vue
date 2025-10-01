@@ -18,7 +18,7 @@
           </p>
           <!-- Tip Buttons in Hero Section -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                         <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" 
+                         <a href="https://buy.stripe.com/4gM00k3l90Qz1rh6h59IQ0m" 
                 target="_blank" rel="noopener noreferrer"
                 class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 text-center flex items-center justify-center">
                
